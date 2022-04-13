@@ -57,8 +57,8 @@ export default function GetAllCity({ cities }) {
   return (
     <>
       <div
-        style={{ margin: "60px", flexDirection: "column" }}
-        className="d-flex justify-content-center "
+        style={{ marginTop: "250px", flexDirection: "column" }}
+        className="d-flex justify-content-center position-absolute top-0 start-50 translate-middle"
       >
         <div>
           <Table responsive hover>

@@ -8,9 +8,12 @@ export default function CreateCity() {
   const [cityName, setCityName] = useState("");
   const [imageURL, setImageURL] = useState("");
   const [plateNumber, setPlateNumber] = useState([]);
+  const [area, setArea] = useState("");
+
 
   const handleChangeCityName = (e) => setCityName(e.target.value);
   const handleChangeImageURL = (e) => setImageURL(e.target.value);
+  const handleChangeArea = (e) => setArea(e.target.value);
   const handleChangePlateNumber = (e) => setPlateNumber(e.target.value);
 
   const handleOnSubmit = (e) => {
@@ -20,6 +23,7 @@ export default function CreateCity() {
       cityName: cityName,
       imageURL: imageURL,
       plateNumber: parseInt(plateNumber),
+      area: area,
     };
     axios
       .post("http://localhost:8080/city", data)
@@ -28,7 +32,7 @@ export default function CreateCity() {
   };
 
   return (
-    <>
+    <div style={{marginTop:"100px"}}>
       <Form
         className="w-50 mx-auto border bordered p-5 shadow-lg"
         onSubmit={handleOnSubmit}
@@ -41,6 +45,16 @@ export default function CreateCity() {
             placeholder="Add City Name"
             type="text"
             onChange={handleChangeCityName}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="area">Area</Label>
+          <Input
+            id="area"
+            name="area"
+            placeholder="area"
+            type="text"
+            onChange={handleChangeArea}
           />
         </FormGroup>
         <FormGroup>
@@ -68,6 +82,6 @@ export default function CreateCity() {
         </Link>
         <Button color="primary" style={{marginRight:"10px"}} className=" float-end ">Add City</Button>
       </Form>
-    </>
+      </div>
   );
 }
